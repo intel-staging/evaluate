@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 from evaluate import EvaluationSuite
+from evaluate.evaluation_suite.model_card_data import ModelCardResult 
 from tests.test_evaluator import DummyTextClassificationPipeline
 
 
@@ -29,3 +30,21 @@ class TestEvaluationSuite(TestCase):
         self.empty_suite = self.evaluation_suite
         self.empty_suite.suite = []
         self.assertRaises(ValueError, self.empty_suite.run, self.dummy_model)
+
+
+class TestEvaluationModelCardSuite(TestCase):
+    def setUp(self):
+        # Check that the EvaluationSuite loads successfully
+        self.evaluation_suite = EvaluationSuite.load("tests/evaluation_mc_suite_ci.py")
+
+        # Setup a dummy model for usage with the EvaluationSuite
+        self.dummy_model = DummyTextClassificationPipeline()
+
+    def test_running_evaluation_suite(self):
+
+        # Check that the evaluation suite successfully runs
+        results, mc_results = self.evaluation_suite.run(self.dummy_model)
+
+        # Check that the results are correct
+        self.assertIsInstance(mc_results, ModelCardResult)
+        self.assertEqual(len(results), 2)
