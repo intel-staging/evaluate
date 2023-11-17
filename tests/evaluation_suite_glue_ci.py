@@ -3,7 +3,6 @@ from evaluate.evaluation_suite import SubTask
 
 
 class Suite(evaluate.EvaluationSuite):
-
     def __init__(self, name):
         super().__init__(name)
 
@@ -19,11 +18,8 @@ class Suite(evaluate.EvaluationSuite):
                     "input_column": "sentence",
                     "label_column": "label",
                     "config_name": "sst2",
-                    "label_mapping": {
-                        "NEGATIVE": 0.0,
-                        "POSITIVE": 1.0
-                    }
-                }
+                    "label_mapping": {"NEGATIVE": 0.0, "POSITIVE": 1.0},
+                },
             ),
             SubTask(
                 task_type="text-classification",
@@ -36,10 +32,7 @@ class Suite(evaluate.EvaluationSuite):
                     "second_input_column": "question2",
                     "label_column": "label",
                     "config_name": "qqp",
-                    "label_mapping": {
-                        "NEGATIVE": 0.0,
-                        "POSITIVE": 1.0
-                    }
-                }
-            )
+                    "label_mapping": {"NEGATIVE": 0.0, "POSITIVE": 1.0},
+                },
+            ),
         ]
