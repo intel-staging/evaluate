@@ -4,10 +4,13 @@ on:
   pull_request:
     branches:
       - main
+      - develop
   push:
     branches:
       - main
       - ci-*
+      - develop
+      - intelai/fix-gha
 
 env:
   HF_ALLOW_CODE_EVAL: 1
