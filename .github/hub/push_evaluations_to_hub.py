@@ -50,11 +50,11 @@ def update_evaluate_dependency(requirements_path, commit_hash):
     with open(requirements_path, "w") as f:
         f.write(file_content)
 
-def push_module_to_hub(module_path, type, token, commit_hash, tag=None):
+def push_module_to_hub(module_path, token, commit_hash, tag=None):
     module_name = module_path.stem
-    org = f"evaluate-{type}"
+    org = "Intel"
     
-    repo_url = create_repo(org + "/" + module_name, repo_type="space", space_sdk="gradio", exist_ok=True, token=token)    
+    repo_url = create_repo(org + "/" + module_name, repo_type="space", space_sdk="static", exist_ok=True, token=token)    
     repo_path = Path(tempfile.mkdtemp())
     
     scheme = urlparse(repo_url).scheme
@@ -98,8 +98,7 @@ def push_module_to_hub(module_path, type, token, commit_hash, tag=None):
 
 
 if __name__ == "__main__":
-    evaluation_paths = ["metrics", "comparisons", "measurements"]
-    evaluation_types = ["metric", "comparison", "measurement"]
+    evaluation_paths = ["suites"]
 
     token = os.getenv("HF_TOKEN")
     evaluate_lib_path = Path(os.getenv("EVALUATE_LIB_PATH"))
@@ -108,11 +107,11 @@ if __name__ == "__main__":
     if git_tag is not None:
         logger.info(f"Found tag: {git_tag}.")
 
-    for type, dir in zip(evaluation_types, evaluation_paths):
+    for dir in evaluation_paths:
         if (evaluate_lib_path/dir).exists():
             for module_path in (evaluate_lib_path/dir).iterdir():
                 if module_path.is_dir():
                     logger.info(f"Updating: module {module_path.name}.")
-                    push_module_to_hub(module_path, type, token, commit_hash, tag=git_tag)
+                    push_module_to_hub(module_path, token, commit_hash, tag=git_tag)
         else:
-            logger.warning(f"No folder {str(evaluate_lib_path/dir)} for {type} found.")
+            logger.warning(f"No folder {str(evaluate_lib_path/dir)} for found.")
