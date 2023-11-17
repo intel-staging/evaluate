@@ -6,6 +6,8 @@ on:
       - main
       - doc-builder*
       - v*-release
+      - develop
+      - intelai/fix-gha
 
 jobs:
    build:
