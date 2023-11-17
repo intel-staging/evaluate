@@ -3,11 +3,12 @@ from evaluate.visualization import radar_plot
 
 from intel_evaluate_extension.evaluation_suite.model_card_suite import ModelCardSuiteResults
 
-_HEADER =  "GLUE/AdvGlue Evaluation Results"
+_HEADER = "GLUE/AdvGlue Evaluation Results"
 
 _DESCRIPTION = """
-The suite compares the GLUE results with Adversarial GLUE (AdvGLUE), a multi-task benchmark 
-meaure the vulnerabilities of modern large-scale language models under various types of adversarial attacks."""
+The suite compares the GLUE results with Adversarial GLUE (AdvGLUE), a
+multi-task benchmark that tests the vulnerability of modern large-scale
+language models againstvarious adversarial attacks."""
 
 
 class Suite(ModelCardSuiteResults):
