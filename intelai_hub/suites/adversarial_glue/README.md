@@ -20,7 +20,7 @@ This suite requires installations of the following fork [IntelAI/evaluate](https
 
 After installation, there are two steps: (1) loading the Adversarial GLUE suite; and (2) calculating the metric.
 
-1. **Loading the relevant GLUE metric** : This suite loads an evaluation suite subtasks for the following GLUE tasks: `sst2`,  `mnli`, `qnli`, `rte`, and `qqp`. It also runs these same t
+1. **Loading the relevant GLUE metric** : This suite loads an evaluation suite subtasks for the following tasks on both AdvGLUE and GLUE datasets: `sst2`,  `mnli`, `qnli`, `rte`, and `qqp`.
 
 More information about the different subsets of the GLUE dataset can be found on the [GLUE dataset page](https://huggingface.co/datasets/glue).
 
@@ -43,7 +43,7 @@ The output of the metric depends on the GLUE subset chosen, consisting of a dict
 
 ### Values from popular papers
 
-The [original GLUE paper](https://huggingface.co/datasets/glue) reported average scores ranging from 58 to 64%, depending on the model used (with all evaluation values scaled by 100 to make computing the average possible).
+The [original GLUE paper](https://huggingface.co/datasets/glue) reported average scores ranging from 58% to 64%, depending on the model used (with all evaluation values scaled by 100 to make computing the average possible).
 
 For more recent model performance, see the [dataset leaderboard](https://paperswithcode.com/dataset/glue).
 
