@@ -190,9 +190,9 @@ class Suite(ModelCardSuiteResults):
 
     def process_results(self, results):
         radar_data = [
-            {"accuracy " + result["task_name"].split("/")[-1]: 
+            {"accuracy " + result["task_name"].split("/")[-1]:
              result["accuracy"] for result in results[::2]},
-            {"accuracy " + result["task_name"].replace("adv_", "").split("/")[-1]: 
+            {"accuracy " + result["task_name"].replace("adv_", "").split("/")[-1]:
              result["accuracy"] for result in results[1::2]}]
         return radar_plot(radar_data, ['GLUE', 'AdvGLUE'])
 
