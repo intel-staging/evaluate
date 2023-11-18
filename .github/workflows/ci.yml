@@ -30,7 +30,7 @@ jobs:
           pip install .[quality]
       - name: Check quality
         run: |
-          black --check --line-length 119 --target-version py36 tests src metrics comparisons measurements
+          black --check --line-length 119 --target-version py36 tests src metrics comparisons measurements intelai_hub
           isort --check-only tests src metrics comparisons measurements
           flake8 tests src metrics
 
