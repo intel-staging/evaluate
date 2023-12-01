@@ -8,7 +8,7 @@ pinned: false
 license: apache-2.0
 ---
 
-# Adversarial GLUE Evaluation Suite
+# Bias AUC Metrics
 
 ## Description
 
