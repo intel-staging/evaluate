@@ -5,7 +5,7 @@
 quality:
 	black --check --line-length 119 --target-version py36 tests src metrics comparisons measurements intelai_hub
 	isort --check-only tests src metrics measurements intelai_hub
-	flake8 tests src metrics
+	flake8 tests src metrics intelai_hub
 
 # Format source code automatically
 
