@@ -3,15 +3,15 @@
 # Check that source code meets quality standards
 
 quality:
-	black --check --line-length 119 --target-version py36 tests src metrics comparisons measurements
-	isort --check-only tests src metrics measurements
+	black --check --line-length 119 --target-version py36 tests src metrics comparisons measurements intelai_hub
+	isort --check-only tests src metrics measurements intelai_hub
 	flake8 tests src metrics
 
 # Format source code automatically
 
 style:
-	black --line-length 119 --target-version py36 tests src metrics comparisons measurements
-	isort tests src metrics measurements
+	black --line-length 119 --target-version py36 tests src metrics comparisons measurements intelai_hub
+	isort tests src metrics measurements intelai_hub
 
 # Run tests for the library
 

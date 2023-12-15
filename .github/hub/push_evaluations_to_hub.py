@@ -54,7 +54,7 @@ def push_module_to_hub(module_path, token, commit_hash, tag=None):
     module_name = module_path.stem
     org = "Intel"
     
-    repo_url = create_repo(org + "/" + module_name, repo_type="space", space_sdk="static", exist_ok=True, token=token)    
+    repo_url = create_repo(org + "/" + module_name, repo_type="space", space_sdk="static", exist_ok=True, token=token)
     repo_path = Path(tempfile.mkdtemp())
     
     scheme = urlparse(repo_url).scheme
