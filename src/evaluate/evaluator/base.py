@@ -235,7 +235,6 @@ class Evaluator(ABC):
         label_column: str = "label",
         label_mapping: Optional[Dict[str, Number]] = None,
     ) -> Dict[str, float]:
-
         result = {}
 
         self.check_for_mismatch_in_device_setup(device, model_or_pipeline)
@@ -270,7 +269,7 @@ class Evaluator(ABC):
         # TODO: To clarify why `wer` and `cer` return float
         # even though metric.compute contract says that it
         # returns Optional[dict].
-        if type(metric_results) == float:
+        if isinstance(metric_results, float):
             metric_results = {metric.name: metric_results}
 
         result.update(metric_results)
