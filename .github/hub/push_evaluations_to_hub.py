@@ -98,7 +98,7 @@ def push_module_to_hub(module_path, token, commit_hash, tag=None):
 
 
 if __name__ == "__main__":
-    evaluation_paths = ["suites"]
+    evaluation_paths = ["suites", "metrics"]
 
     token = os.getenv("HF_TOKEN")
     evaluate_lib_path = Path(os.getenv("EVALUATE_LIB_PATH"))
